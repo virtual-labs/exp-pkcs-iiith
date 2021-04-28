@@ -1,6 +1,5 @@
 [
-{
-		"question": "1. Let p = 17, q = 11 and N = pq. If (in the public-key) e= 7, then a possible value for the trap-door d (in the private-key) in an RAS cryptosystem is",
+{"question": "1. Let p = 17, q = 11 and N = pq. If (in the public-key) e= 7, then a possible value for the trap-door d (in the private-key) in an RAS cryptosystem is ",
 		"answers": {
 			"a": "22",
 			"b": "153",
