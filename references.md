@@ -1,0 +1,5 @@
+- **PKCS #1 v1.5: RSA Cryptography Standard** - RSA Laboratories Technical Note (1993)
+- **RFC 3447: Public-Key Cryptography Standards (PKCS) #1: RSA Cryptography Specifications Version 2.1** - IETF Network Working Group (2003)
+- [Wikipedia on PKCS #1](https://en.wikipedia.org/wiki/PKCS_1) - Overview and historical context
+- [RSA Laboratories](https://www.rsa.com/en-us/company/labs) - Original standards and specifications
+- [NIST Special Publication 800-56B](https://csrc.nist.gov/publications/detail/sp/800-56b/rev-2/final) - Recommendations for pair-wise key establishment using integer factorization cryptography

@@ -1,0 +1,261 @@
+/* PKCS#1 v1.5 Simulation Styles - MAC Style Layout */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f0f8ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  font-weight: 600;
+}
+
+h4 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+h5 {
+  color: #6c757d;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Form styling */
+form {
+  margin: 20px 0;
+}
+
+/* Table layout styling */
+table {
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+td:first-child {
+  font-weight: bold;
+  min-width: 200px;
+}
+
+/* Input and textarea styling */
+input[type="text"],
+textarea {
+  font-family: monospace;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 3px;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus states for accessibility */
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button styling */
+input[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+/* Step 1 section styling (results class) */
+.results {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #ffc107;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Step 2 section styling (key-section class) */
+.key-section {
+  background: #d4edda;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  border-left: 4px solid #28a745;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Details/Summary styling */
+details {
+  margin-top: 15px;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #dc3545;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+summary {
+  cursor: pointer;
+  padding: 10px;
+  background: #f5c6cb;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+summary:hover {
+  background: #f1b0b7;
+}
+
+/* Label styling */
+label {
+  font-weight: bold;
+  color: #333;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+/* Status area */
+input[name="status"] {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  body {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  .content {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  td:first-child {
+    min-width: 120px;
+  }
+
+  /* Larger inputs for mobile */
+  input[type="text"],
+  textarea {
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 44px;
+  }
+
+  /* Larger buttons for mobile */
+  input[type="button"] {
+    font-size: 16px;
+    padding: 15px 20px;
+    min-height: 50px;
+    margin: 8px 4px;
+    width: auto;
+    min-width: 120px;
+  }
+
+  /* Responsive textareas */
+  textarea {
+    width: 100%;
+    min-height: 100px;
+  }
+
+  textarea[rows="2"] {
+    min-height: 80px;
+  }
+
+  textarea[rows="4"] {
+    min-height: 120px;
+  }
+
+  /* Bit input styling */
+  input[name="bits"] {
+    width: 80px;
+    margin-left: 8px;
+  }
+
+  /* Key section mobile adjustments */
+  .key-section {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  /* Results section mobile */
+  .results {
+    padding: 15px;
+  }
+
+  /* Form paragraphs spacing */
+  p {
+    margin: 15px 0;
+  }
+
+  /* Labels and text */
+  label,
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 480px) {
+  body {
+    margin: 5px;
+  }
+
+  .container {
+    padding: 5px;
+  }
+
+  input[type="button"] {
+    padding: 18px 15px;
+    font-size: 18px;
+    min-height: 56px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 18px;
+    padding: 15px;
+    min-height: 50px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
