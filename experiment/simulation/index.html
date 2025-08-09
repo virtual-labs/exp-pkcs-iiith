@@ -7,220 +7,339 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body onload="do_init();">
-    <div class="container">
-      <h2>PKCS#1 v1.5 RSA Encryption/Decryption Simulation</h2>
+    <div class="content">
+      <h3>PKCS#1 v1.5 RSA Encryption/Decryption Simulation</h3>
 
       <form name="rsatest" onsubmit="do_encrypt();return false;">
         <!-- Input Section -->
         <div class="results">
-          <h3>Step 1: Enter Your Message</h3>
-          <p>
-            <label for="plaintext">Plaintext to encrypt:</label><br />
-            <input
-              id="plaintext"
-              name="plaintext"
-              size="60"
-              type="text"
-              value="Hello World!"
-              placeholder="Enter your message here..."
-            />
-          </p>
+          <h4>Step 1: Message Encryption/Decryption</h4>
 
-          <div style="text-align: center; margin: 20px 0">
-            <input onclick="do_encrypt();" type="button" value="🔒 Encrypt" />
-            <input onclick="do_decrypt();" type="button" value="🔓 Decrypt" />
-          </div>
-
-          <p>
-            <label for="ciphertext">Ciphertext (hex):</label><br />
-            <textarea
-              id="ciphertext"
-              name="ciphertext"
-              rows="4"
-              cols="70"
-              placeholder="Encrypted data will appear here..."
-            ></textarea>
-          </p>
-
-          <p>
-            <label for="decrypted">Decrypted text:</label><br />
-            <input
-              id="decrypted"
-              name="decrypted"
-              size="60"
-              type="text"
-              placeholder="Decrypted message will appear here..."
-            />
-          </p>
-
-          <p>
-            <label for="status">Status:</label><br />
-            <input
-              id="status"
-              name="status"
-              size="60"
-              type="text"
-              readonly
-              value="Ready for encryption/decryption"
-            />
-          </p>
+          <table style="width: 100%">
+            <tr>
+              <td><strong>Plaintext to encrypt:</strong></td>
+              <td>
+                <input
+                  id="plaintext"
+                  name="plaintext"
+                  size="60"
+                  type="text"
+                  value="Hello World!"
+                  placeholder="Enter your message here..."
+                  style="width: 100%"
+                />
+              </td>
+              <td>
+                <input
+                  onclick="do_encrypt();"
+                  type="button"
+                  value="🔒 Encrypt"
+                  style="
+                    background: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin: 5px;
+                  "
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Ciphertext (hex):</strong></td>
+              <td>
+                <textarea
+                  id="ciphertext"
+                  name="ciphertext"
+                  rows="4"
+                  cols="70"
+                  placeholder="Encrypted data will appear here..."
+                  style="width: 100%; font-family: monospace"
+                ></textarea>
+              </td>
+              <td>
+                <input
+                  onclick="do_decrypt();"
+                  type="button"
+                  value="🔓 Decrypt"
+                  style="
+                    background: #fd7e14;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin: 5px;
+                  "
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Decrypted text:</strong></td>
+              <td>
+                <input
+                  id="decrypted"
+                  name="decrypted"
+                  size="60"
+                  type="text"
+                  placeholder="Decrypted message will appear here..."
+                  style="width: 100%"
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Status:</strong></td>
+              <td>
+                <input
+                  id="status"
+                  name="status"
+                  size="60"
+                  type="text"
+                  readonly
+                  value="Ready for encryption/decryption"
+                  style="
+                    width: 100%;
+                    background-color: #f0f0f0;
+                    font-weight: bold;
+                  "
+                />
+              </td>
+              <td></td>
+            </tr>
+          </table>
         </div>
 
         <!-- RSA Key Management Section -->
         <div class="key-section">
-          <h3>Step 2: RSA Key Management</h3>
+          <h4>Step 2: RSA Key Management</h4>
           <p><strong>Choose a preset key or generate a new one:</strong></p>
 
-          <div class="key-buttons">
+          <div style="margin: 10px 0">
             <input
               onclick="set_1024f4();"
               type="button"
               value="1024-bit Key (e=65537)"
+              style="
+                background: #28a745;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+              "
             />
             <input
               onclick="set_1024e3();"
               type="button"
               value="1024-bit Key (e=3)"
+              style="
+                background: #fd7e14;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+              "
             />
             <input
               onclick="set_512f4();"
               type="button"
               value="512-bit Key (e=65537)"
+              style="
+                background: #dc3545;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+              "
             />
             <input
               onclick="set_512e3();"
               type="button"
               value="512-bit Key (e=3)"
+              style="
+                background: #6f42c1;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+              "
             />
+          </div>
+
+          <div style="margin: 10px 0">
             <input
               onclick="do_genrsa();"
               type="button"
               value="🔑 Generate New Key"
+              style="
+                background: #17a2b8;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin: 5px;
+              "
             />
-            <label for="bits">Key size (bits): </label>
-            <input id="bits" name="bits" size="10" type="text" value="512" />
+            <label for="bits" style="margin-left: 15px"
+              >Key size (bits):
+            </label>
+            <input
+              id="bits"
+              name="bits"
+              size="10"
+              type="text"
+              value="512"
+              style="padding: 8px; border: 1px solid #ccc; border-radius: 3px"
+            />
           </div>
 
-          <h4>RSA Key Parameters</h4>
-          <p>
-            <label for="n">Modulus (hex):</label><br />
-            <textarea
-              id="n"
-              name="n"
-              rows="4"
-              cols="70"
-              placeholder="RSA modulus will appear here..."
-            ></textarea>
-          </p>
-
-          <p>
-            <label for="e">Public exponent (hex, F4=0x10001):</label><br />
-            <input id="e" name="e" size="20" type="text" value="10001" />
-          </p>
-
-          <p>
-            <label for="d">Private exponent (hex):</label><br />
-            <textarea
-              id="d"
-              name="d"
-              rows="4"
-              cols="70"
-              placeholder="Private exponent will appear here..."
-            ></textarea>
-          </p>
+          <h5>RSA Key Parameters</h5>
+          <table style="width: 100%">
+            <tr>
+              <td><strong>Modulus (hex):</strong></td>
+              <td>
+                <textarea
+                  id="n"
+                  name="n"
+                  rows="4"
+                  cols="70"
+                  placeholder="RSA modulus will appear here..."
+                  style="width: 100%; font-family: monospace"
+                ></textarea>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Public exponent (hex):</strong><br /><small
+                  >(F4=0x10001)</small
+                >
+              </td>
+              <td>
+                <input
+                  id="e"
+                  name="e"
+                  size="20"
+                  type="text"
+                  value="10001"
+                  style="width: 100%; font-family: monospace"
+                />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Private exponent (hex):</strong></td>
+              <td>
+                <textarea
+                  id="d"
+                  name="d"
+                  rows="4"
+                  cols="70"
+                  placeholder="Private exponent will appear here..."
+                  style="width: 100%; font-family: monospace"
+                ></textarea>
+              </td>
+              <td></td>
+            </tr>
+          </table>
 
           <details>
             <summary>
               <strong>Advanced Key Parameters (Click to expand)</strong>
             </summary>
-            <p>
-              <label for="p">P (hex):</label><br />
-              <textarea
-                id="p"
-                name="p"
-                rows="2"
-                cols="70"
-                placeholder="Prime factor P will appear here..."
-              ></textarea>
-            </p>
-
-            <p>
-              <label for="q">Q (hex):</label><br />
-              <textarea
-                id="q"
-                name="q"
-                rows="2"
-                cols="70"
-                placeholder="Prime factor Q will appear here..."
-              ></textarea>
-            </p>
-
-            <p>
-              <label for="dmp1">D mod (P-1) (hex):</label><br />
-              <textarea
-                id="dmp1"
-                name="dmp1"
-                rows="2"
-                cols="70"
-                placeholder="D mod (P-1) will appear here..."
-              ></textarea>
-            </p>
-
-            <p>
-              <label for="dmq1">D mod (Q-1) (hex):</label><br />
-              <textarea
-                id="dmq1"
-                name="dmq1"
-                rows="2"
-                cols="70"
-                placeholder="D mod (Q-1) will appear here..."
-              ></textarea>
-            </p>
-
-            <p>
-              <label for="coeff">1/Q mod P (hex):</label><br />
-              <textarea
-                id="coeff"
-                name="coeff"
-                rows="2"
-                cols="70"
-                placeholder="Coefficient will appear here..."
-              ></textarea>
-            </p>
+            <table style="width: 100%; margin-top: 10px">
+              <tr>
+                <td><strong>P (hex):</strong></td>
+                <td>
+                  <textarea
+                    id="p"
+                    name="p"
+                    rows="2"
+                    cols="70"
+                    placeholder="Prime factor P will appear here..."
+                    style="width: 100%; font-family: monospace"
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>Q (hex):</strong></td>
+                <td>
+                  <textarea
+                    id="q"
+                    name="q"
+                    rows="2"
+                    cols="70"
+                    placeholder="Prime factor Q will appear here..."
+                    style="width: 100%; font-family: monospace"
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>D mod (P-1) (hex):</strong></td>
+                <td>
+                  <textarea
+                    id="dmp1"
+                    name="dmp1"
+                    rows="2"
+                    cols="70"
+                    placeholder="D mod (P-1) will appear here..."
+                    style="width: 100%; font-family: monospace"
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>D mod (Q-1) (hex):</strong></td>
+                <td>
+                  <textarea
+                    id="dmq1"
+                    name="dmq1"
+                    rows="2"
+                    cols="70"
+                    placeholder="D mod (Q-1) will appear here..."
+                    style="width: 100%; font-family: monospace"
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><strong>1/Q mod P (hex):</strong></td>
+                <td>
+                  <textarea
+                    id="coeff"
+                    name="coeff"
+                    rows="2"
+                    cols="70"
+                    placeholder="Coefficient will appear here..."
+                    style="width: 100%; font-family: monospace"
+                  ></textarea>
+                </td>
+                <td></td>
+              </tr>
+            </table>
           </details>
         </div>
       </form>
-
-      <!-- Instructions Section -->
-      <div class="results">
-        <h3>How to Use This Simulation</h3>
-        <ol>
-          <li>
-            <strong>Enter your message:</strong> Type the text you want to
-            encrypt in the plaintext field.
-          </li>
-          <li>
-            <strong>Select or generate an RSA key:</strong> Choose a preset key
-            or generate a new one with your desired bit length.
-          </li>
-          <li>
-            <strong>Encrypt:</strong> Click the "🔒 Encrypt" button to encrypt
-            your message using PKCS#1 v1.5 padding.
-          </li>
-          <li>
-            <strong>Decrypt:</strong> Click the "🔓 Decrypt" button to decrypt
-            the ciphertext back to the original message.
-          </li>
-        </ol>
-        <p>
-          <strong>Note:</strong> This simulation demonstrates PKCS#1 v1.5
-          encryption/decryption using RSA. The padding scheme adds randomness
-          and structure to ensure security.
-        </p>
-      </div>
     </div>
 
     <!-- JavaScript Files -->
+    <script
+      language="JavaScript"
+      src="js/mobile-detection.js"
+      type="text/javascript"
+    ></script>
     <script
       language="JavaScript"
       src="js/base64.js"
