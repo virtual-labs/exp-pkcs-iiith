@@ -1,64 +1,70 @@
-Follow these steps to explore PKCS#1 v1.5 encryption and decryption:
+Follow these steps to explore PKCS#1 v1.5 RSA encryption and decryption using the interactive simulation:
 
-### Step 1: Enter Your Message
+### **Phase 1: Message Input and Initial Setup**
 
-1. In the **"Plaintext to encrypt"** field, enter the text you want to encrypt
-2. You can use the default "Hello World!" or enter your own message
-3. Note that longer messages may require larger key sizes
+**STEP 1:** Enter your message in the plaintext field
 
-### Step 2: Select or Generate RSA Keys
+- Type your desired message in the **"Plaintext to encrypt"** field
+- You can use the default "Hello World!" or enter your own text
+- Consider that longer messages may require larger key sizes for proper encryption
 
-Choose one of the following options:
+**STEP 2:** Observe the simulation interface organization
 
-**Option A: Use Preset Keys**
+- **Step 1 Section (Yellow)**: Message encryption/decryption operations
+- **Step 2 Section (Green)**: RSA key management and parameters
+- **Advanced Section (Red)**: Detailed key parameters for cryptographic analysis
 
-- Click **"512-bit Key (e=65537)"** for a standard 512-bit key
-- Click **"512-bit Key (e=3)"** for a faster encryption key with e=3
-- Click **"1024-bit Key (e=65537)"** for a more secure 1024-bit key
-- Click **"1024-bit Key (e=3)"** for a 1024-bit key with e=3
+### **Phase 2: RSA Key Selection and Management**
 
-**Option B: Generate New Keys**
+**STEP 3:** Choose your RSA key configuration from the preset options:
 
-1. Set the desired key size in the **"Key size (bits)"** field (e.g., 512, 1024)
-2. Click **"🔑 Generate New Key"** to create a fresh RSA key pair
-3. Wait for the generation to complete (larger keys take more time)
+- **Green Button - 1024-bit Key (e=65537)**: Standard secure key with common public exponent
+- **Orange Button - 1024-bit Key (e=3)**: Fast encryption key with small public exponent
+- **Red Button - 512-bit Key (e=65537)**: Smaller key for faster operations
+- **Purple Button - 512-bit Key (e=3)**: Fastest encryption with minimal security trade-off
 
-### Step 3: Encrypt Your Message
+**STEP 4:** OR generate a custom RSA key:
 
-1. Click the **"🔒 Encrypt"** button
-2. Observe the encryption process in the status field
-3. The encrypted ciphertext will appear in the **"Ciphertext (hex)"** field
-4. Note the encryption time displayed in the status
+- Set your desired key size in the **"Key size (bits)"** field (512, 1024, or larger)
+- Click the **"🔑 Generate New Key"** button (cyan/blue)
+- Wait for the generation process to complete (larger keys require more time)
 
-### Step 4: Decrypt the Ciphertext
+**STEP 5:** Examine the generated key parameters:
 
-1. Click the **"🔓 Decrypt"** button
-2. The decrypted message will appear in the **"Decrypted text"** field
-3. Verify that it matches your original plaintext
-4. Note the decryption time displayed in the status
+- **Modulus (n)**: The public modulus used in both encryption and decryption
+- **Public Exponent (e)**: The public key component (typically 65537 or 3)
+- **Private Exponent (d)**: The secret key component for decryption
 
-### Step 5: Explore Key Parameters (Advanced)
+### **Phase 3: Encryption and Decryption Operations**
 
-1. Expand the **"Advanced Key Parameters"** section
-2. Examine the various RSA key components:
-   - **Modulus (n)**: The product of two prime numbers
-   - **Public exponent (e)**: Used for encryption
-   - **Private exponent (d)**: Used for decryption
-   - **Prime factors (p, q)**: The secret primes used to generate the key
-   - **CRT parameters**: Optimizations for faster decryption
+**STEP 6:** Perform PKCS#1 v1.5 encryption:
 
-### Experimental Observations
+- Click the **"🔒 Encrypt"** button (green) in the message operations section
+- Observe the encryption process in the status field
+- The ciphertext appears in hexadecimal format in the **"Ciphertext (hex)"** field
+- Note the encryption time and any status messages
 
-Try the following experiments:
+**STEP 7:** Perform decryption to verify the process:
 
-1. **Different Key Sizes**: Compare encryption/decryption times between 512-bit and 1024-bit keys
-2. **Different Exponents**: Notice the performance difference between e=3 and e=65537
-3. **Message Length**: Try encrypting different length messages
-4. **Error Handling**: Try decrypting without encrypting first, or modify the ciphertext
+- Click the **"🔓 Decrypt"** button (orange) to reverse the encryption
+- The decrypted message appears in the **"Decrypted text"** field
+- Verify that the decrypted text exactly matches your original plaintext
+- Observe the decryption time in the status field
 
-### Expected Results
+### **Phase 4: Advanced Cryptographic Analysis**
 
-- Encryption should produce a hexadecimal ciphertext
-- Decryption should recover the original plaintext exactly
-- Larger keys provide better security but slower performance
-- The same plaintext will produce different ciphertexts due to random padding
+**STEP 8:** Explore advanced RSA parameters (optional):
+
+- Click to expand the **"Advanced Key Parameters"** section (red background)
+- Examine the mathematical components:
+  - **Prime Factors (P, Q)**: The secret primes that generate the modulus
+  - **D mod (P-1)**: Chinese Remainder Theorem optimization parameter
+  - **D mod (Q-1)**: CRT parameter for faster decryption
+  - **1/Q mod P**: CRT coefficient for reconstruction
+
+**STEP 9:** Conduct comparative experiments:
+
+- **Key Size Comparison**: Generate keys of different sizes and compare performance
+- **Exponent Analysis**: Compare encryption speed between e=3 and e=65537
+- **Security vs Performance**: Observe the trade-off between key size and operation speed
+- **Padding Verification**: Notice how the same plaintext produces different ciphertexts due to random padding
